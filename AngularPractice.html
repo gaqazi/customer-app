@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div ng-app="customerApp">
+	<h2 class="panel">Customers App</h2>
+	<div ng-controller="CustomerAddition">
+		<div class="row">
+			<div class="columns large-12"><span class="alert-box">Add Customers</span></div>
+		</div>
+		<div class="row">
+			<div class="columns large-3">
+				<label>First Name</label><input placeholder="First Name" class="width" type="text" ng-model="newFName">
+			</div>
+			<div class="columns large-3">
+				<label>Last Name</label><input placeholder="Last Name" class="width" type="text" ng-model="newLName">
+			</div>
+			<div class="columns large-3">
+				<label>City</label><input placeholder="Customer City" class="width" type="text" ng-model="newCity">
+			</div>
+			<div class="columns large-3">
+				<button class="button small" ng-click="addCustomer()">Add Customer</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="customerDetails" ng-repeat="customer in customers">
+				<div class="alert-box customerPanel">
+					<div class="customerName">{{customer.FirstName + " " +customer.LastName}}</div>
+					<div class="iconArea" ng-click="deleteCustomer($index)">X</div>
+					<!--<div class="iconArea" ng-click="deleteCustomer($index)"><i class="fi-page-delete"></i></div>-->
+				</div>
+				<span class="label">{{customer.City}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/vendor/angular.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="css/foundation.css">
+<link rel="stylesheet" href="css/foundation-icons.css">
+<link rel="stylesheet" href="css/foundation-icons.ttf">
+</body>
+</html>
